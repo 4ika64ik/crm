@@ -22,7 +22,7 @@ function OrderForm() {
     const handleSubmit = (e) => {
         e.preventDefault();
         // Отправка данных в CRM
-        fetch('http://keennode.lp-crm.biz/api/addNewOrder.html', {
+        fetch('https://keennode.lp-crm.biz/api/addNewOrder.html', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
