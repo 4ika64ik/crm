@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import ProfileHeader from './header/Header';
 import Menu from './menu/Headers';
+import OrderForm from './form/OrderForm';
 
 
 
@@ -14,6 +15,7 @@ import Menu from './menu/Headers';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
+    <OrderForm></OrderForm>
     <Menu></Menu>
     <ProfileHeader></ProfileHeader>
     <App />
