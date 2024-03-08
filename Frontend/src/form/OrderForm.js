@@ -3,12 +3,9 @@ import React, { useState } from 'react';
 function OrderForm() {
     const [formData, setFormData] = useState({
         key: '250a0f35334fe87656e381fec9ce2b08',
-        country: '',
-        products: [],
+        country: 'UA', // Добавьте код страны (по умолчанию Украина)
         buyer_name: '',
         phone: '',
-        email: '',
-        // Другие поля данных...
     });
 
     const handleChange = (e) => {
@@ -45,10 +42,8 @@ function OrderForm() {
 
     return (
         <form onSubmit={handleSubmit}>
-            <input type="text" name="country" placeholder="Country" value={formData.country} onChange={handleChange} required />
-            <input type="text" name="buyer_name" placeholder="Buyer Name" value={formData.buyer_name} onChange={handleChange} required />
-            <input type="tel" name="phone" placeholder="Phone" value={formData.phone} onChange={handleChange} required />
-            {/* Добавьте другие поля формы, как указано в вашей документации CRM */}
+            <input type="text" name="buyer_name" placeholder="Your Name" value={formData.buyer_name} onChange={handleChange} required />
+            <input type="tel" name="phone" placeholder="Your Phone Number" value={formData.phone} onChange={handleChange} required />
             <button type="submit">Submit</button>
         </form>
     );
