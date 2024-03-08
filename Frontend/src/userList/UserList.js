@@ -8,7 +8,7 @@ const UserList = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await axios.get('https://construction-build.com:8081/users');
+        const response = await axios.get('http://185.230.64.242:8081/users');
         setUsers(response.data);
       } catch (error) {
         console.error(error);
@@ -20,7 +20,7 @@ const UserList = () => {
 
   const handleCall = async (userId) => {
     try {
-      await axios.put(`https://construction-build.com:8081/update/${userId}`, { status: 1 });
+      await axios.put(`http://185.230.64.242:8081/update/${userId}`, { status: 1 });
       console.log('Дозвонился пользователю с ID:', userId);
     } catch (error) {
       console.error('Ошибка при отправке запроса:', error);
@@ -29,7 +29,7 @@ const UserList = () => {
 
   const handleNoAnswer = async (userId) => {
     try {
-      await axios.put(`https://construction-build.com:8081/update/${userId}`, { status: 0 });
+      await axios.put(`http://185.230.64.242:8081/update/${userId}`, { status: 0 });
       console.log('Не дозвонился пользователю с ID:', userId);
     } catch (error) {
       console.error('Ошибка при отправке запроса:', error);
