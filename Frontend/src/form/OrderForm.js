@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 function OrderForm() {
     const [formData, setFormData] = useState({
         key: '250a0f35334fe87656e381fec9ce2b08',
-        country: 'UA', // Добавьте код страны (по умолчанию Украина)
+        country: 'UA',
         buyer_name: '',
         phone: '',
     });
@@ -18,22 +18,22 @@ function OrderForm() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Отправка данных в CRM
-        fetch('https://keennode.lp-crm.biz/api/addNewOrder.html', {
+        const requestOptions = {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            // Временное решение: отключение проверки SSL-сертификата
-            agent: new (require('https').Agent)({ rejectUnauthorized: false }), 
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData)
+        };
+
+        // Disable SSL certificate verification for this fetch request
+        fetch('https://keennode.lp-crm.biz/api/addNewOrder.html', {
+            ...requestOptions,
+            // Temporary solution: disable SSL certificate verification
+            agent: new window.Agent({ rejectUnauthorized: false })
         })
         .then(response => {
             if (response.ok) {
-                // Обработка успешного ответа от CRM
                 console.log('Data sent successfully');
             } else {
-                // Обработка ошибок отправки данных в CRM
                 console.error('Failed to send data');
             }
         })
