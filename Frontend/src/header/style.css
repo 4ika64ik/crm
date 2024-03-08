@@ -1,0 +1,31 @@
+.profile-header {
+    display: flex; /* Allow elements to sit side-by-side */
+    align-items: center; /* Vertically align elements */
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+  }
+  
+  .profile-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover; /* Maintain aspect ratio and crop if needed */
+    margin-right: 20px;
+  }
+  
+  .profile-info {
+    flex: 1; /* Take up remaining space */
+  }
+  
+  .profile-info h2 {
+    margin: 0 0 5px 0;
+    font-size: 20px;
+  }
+  
+  .profile-info p {
+    margin-bottom: 0;
+    color: #888;
+  }
+  

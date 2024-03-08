@@ -8,9 +8,9 @@ app.use(express.json()); // Middleware для обработки JSON данны
 
 const db = mysql.createConnection({
     host: "localhost",
-    user: 'root',
-    password: '',
-    database: 'test'
+    user: 'construction',
+    password: 'kct9Bs62XfzFA4VB',
+    database: 'construction'
 });
 
 // Маршрут для получения информации о сервере
@@ -38,6 +38,22 @@ app.post('/submit', (req, res) => {
         }
         console.log('Data inserted successfully');
         return res.status(200).json({ message: 'Data inserted successfully' });
+    });
+});
+
+// Маршрут для обновления статуса дозвона
+app.put('/update/:userId', (req, res) => {
+    const userId = req.params.userId;
+    const status = req.body.status;
+
+    const sql = "UPDATE users SET called = ? WHERE id = ?";
+    db.query(sql, [status, userId], (err, result) => {
+        if (err) {
+            console.error('Error updating data:', err);
+            return res.status(500).json({ error: 'Error updating data' });
+        }
+        console.log('Data updated successfully');
+        return res.status(200).json({ message: 'Data updated successfully' });
     });
 });
 
