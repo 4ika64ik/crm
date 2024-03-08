@@ -24,6 +24,8 @@ function OrderForm() {
             headers: {
                 'Content-Type': 'application/json'
             },
+            // Временное решение: отключение проверки SSL-сертификата
+            agent: new (require('https').Agent)({ rejectUnauthorized: false }), 
             body: JSON.stringify(formData)
         })
         .then(response => {
@@ -39,7 +41,7 @@ function OrderForm() {
             console.error('Error:', error);
         });
     };
-
+    
     return (
         <form onSubmit={handleSubmit}>
             <input type="text" name="buyer_name" placeholder="Your Name" value={formData.buyer_name} onChange={handleChange} required />
