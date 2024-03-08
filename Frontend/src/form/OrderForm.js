@@ -41,7 +41,7 @@ function OrderForm() {
             console.error('Error:', error);
         });
     };
-    
+
     return (
         <form onSubmit={handleSubmit}>
             <input type="text" name="buyer_name" placeholder="Your Name" value={formData.buyer_name} onChange={handleChange} required />
