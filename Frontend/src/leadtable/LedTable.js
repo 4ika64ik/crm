@@ -7,7 +7,7 @@ const LeadTable = ({ userId }) => {
   useEffect(() => {
     const fetchAssignedLeads = async () => {
       try {
-        const response = await axios.get(`http://construction-build.com:8084/users/${userId}/leads`);
+        const response = await axios.get(`https://construction-build.com:8084/users/${userId}/leads`);
         setAssignedLeads(response.data);
       } catch (error) {
         console.error('Ошибка при получении назначенных лидов:', error);

@@ -13,7 +13,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://construction-build.com:8084/login', {
+      const response = await axios.post('https://construction-build.com:8084/login', {
         name,
         password
       });
