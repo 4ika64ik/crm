@@ -28,7 +28,7 @@ function OrderForm() {
         fetch('https://keennode.lp-crm.biz/api/addNewOrder.html', {
             ...requestOptions,
             // Temporary solution: disable SSL certificate verification
-            agent: new window.Agent({ rejectUnauthorized: false })
+            agent: new window.https.Agent({ rejectUnauthorized: false })
         })
         .then(response => {
             if (response.ok) {
